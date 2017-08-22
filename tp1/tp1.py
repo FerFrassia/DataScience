@@ -33,6 +33,43 @@ sns.plt.legend([sol, nublado, lluvia], labels=["sol","nublado","lluvia"])
 
 sns.plt.show()
 
+"""
+con esto descartamos la hiptesis nula el clima no influye en la velocidad
+de los atletas. tenemos que ver si las hiptesis de t_test se cumplen y vamo
+"""
+
+p = sp.stats.ttest_rel(df['tiempo_sol'], df['tiempo_lluvia'])
+
+print(p)
+
+#para ver si son normales
+#lo es yohooo
+norm_s = sp.stats.shapiro(df['tiempo_sol'])
+norm_l = sp.stats.shapiro(df['tiempo_lluvia'])
+norm_n = sp.stats.shapiro(df['tiempo_nublado'])
+
+"""
+print(norm_s)
+print(norm_l)
+print(norm_n)
+"""
+#no estariamos usando bien el f...
+"""
+var_sl = sp.stats.f.stats(df['tiempo_sol'], df['tiempo_lluvia'])
+var_ln= sp.stats.f.stats(df['tiempo_nublado'], df['tiempo_lluvia'])
+var_sn = sp.stats.f.stats(df['tiempo_sol'], df['tiempo_nublado'])
+
+print(var_sl)
+"""
+
+"""
+sobre la hipotesis 1 nosotros por el test p sabemos que no tienen
+misma media, podemos decir que si por que la media de dias de sol
+mas baja que en dias de lluvia y con eso concluir que la 1 es verdad.
+es decir con P decimos que no son iguales, entonces tienen que ser distintas
+como ms < ml podemos suponer que la hip 1 es verdaera.
+"""
+
 
 """
 Nos falta definir que cosas usar, para mi un tstudent tipo muestra independtiente
