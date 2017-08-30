@@ -15,6 +15,9 @@ lluvia = sns.tsplot(time=df['Atleta'], data=df['tiempo_lluvia'], interpolate=Fal
 sns.plt.legend([sol, nublado, lluvia], labels=["sol","nublado","lluvia"])
 
 sns.plt.show()
+
+
+
 """
 esta seria la fase de limpiar.
 dropee el ateta que tenia el dato, pero queria dropear solo ese dato feo...
