@@ -1,9 +1,10 @@
 import scipy.io
 import pandas as pd
-
-mat = scipy.io.loadmat('P01.mat')
-print(mat["data"].shape)
-#mat['data'] es una matriz de 3 dimensiones, 
-#hay que convertirla en una de 2d para pasarla a dataframe
-#df1 = pd.DataFrame(mat)
-#print(df1.index)
+import numpy as np
+import matplotlib.pyplot as plt
+m = scipy.io.loadmat('P01.mat')
+mm = m['data']
+elect = mm[:,44,:]
+df = pd.DataFrame(elect)
+plt.plot(np.linspace(-200, 1340, 201), df.mean())
+plt.show()
